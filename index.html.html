@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국공립힐스테이트만촌역어린이집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF9F0;
+    --petal:#FFD166;      /* 노란꽃잎 */
+    --petal-soft:#FFF0C9;
+    --sky:#7EC8E3;        /* 파란하늘 */
+    --sky-soft:#E3F3FA;
+    --sprout:#8FCB9B;     /* 초록새싹 */
+    --sprout-soft:#E7F5EA;
+    --cloud:#FFFFFF;      /* 하얀구름 */
+    --cloud-soft:#F4F6F8;
+    --peach:#F4907C;
+    --brown:#5C4A3D;
+    --brown-light:#8A776A;
+    --radius:26px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Gowun Dodum',sans-serif;
+    background:var(--cream);
+    color:var(--brown);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.logo,.btn{font-family:'Jua',sans-serif;font-weight:400;}
+
+  /* ---------- 헤더 ---------- */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,249,240,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:2px dashed var(--petal);
+  }
+  .header-inner{
+    max-width:1080px;margin:0 auto;padding:14px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-size:1.15rem;color:var(--brown);text-decoration:none;}
+  .logo svg{width:38px;height:38px;}
+  nav{display:flex;gap:4px;flex-wrap:wrap;}
+  nav a{
+    text-decoration:none;color:var(--brown-light);
+    padding:7px 13px;border-radius:999px;font-size:.95rem;transition:.2s;
+  }
+  nav a:hover,nav a:focus-visible{background:var(--petal-soft);color:var(--brown);}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--sky);outline-offset:2px;}
+
+  /* ---------- 히어로 ---------- */
+  .hero{position:relative;padding:64px 20px 0;text-align:center;overflow:hidden;}
+  .hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:2;}
+  .hero .eyebrow{
+    display:inline-block;background:var(--sprout-soft);color:#4E8B5C;
+    padding:6px 18px;border-radius:999px;font-size:.9rem;margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(1.7rem,4.5vw,2.9rem);line-height:1.35;margin-bottom:16px;}
+  .hero h1 .hl{color:var(--peach);}
+  .hero p{color:var(--brown-light);max-width:560px;margin:0 auto 26px;font-size:1.05rem;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--petal);color:var(--brown);text-decoration:none;
+    padding:13px 26px;border-radius:999px;font-size:1.05rem;
+    box-shadow:0 4px 0 #E8B84B;transition:.15s;border:none;cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 #E8B84B;}
+  .btn.ghost{background:var(--cloud);box-shadow:0 4px 0 #E4DED4;margin-left:10px;}
+  .btn.ghost:hover{box-shadow:0 6px 0 #E4DED4;}
+
+  /* 히어로 손그림 풍경 */
+  .hero-scene{margin-top:34px;position:relative;}
+  .hero-scene svg{width:100%;max-width:1100px;display:block;margin:0 auto;}
+  .float{animation:float 5s ease-in-out infinite;}
+  .float.d1{animation-delay:1.2s;}
+  .float.d2{animation-delay:2.4s;}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  @media (prefers-reduced-motion:reduce){.float{animation:none;}}
+
+  /* ---------- 공통 섹션 ---------- */
+  section{padding:70px 20px;}
+  .container{max-width:1080px;margin:0 auto;}
+  .sec-head{text-align:center;margin-bottom:44px;}
+  .sec-head .tag{
+    display:inline-block;padding:5px 16px;border-radius:999px;
+    font-size:.85rem;margin-bottom:12px;
+  }
+  .sec-head h2{font-size:clamp(1.5rem,3.5vw,2.1rem);}
+  .sec-head p{color:var(--brown-light);margin-top:10px;}
+
+  /* 물결 구분선 */
+  .wave{display:block;width:100%;height:60px;margin-bottom:-1px;}
+
+  /* ---------- 인사말 ---------- */
+  .greet{background:var(--cloud);}
+  .greet-card{
+    display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center;
+  }
+  .greet-photo-wrap{position:relative;}
+  .greet-text h2{font-size:1.7rem;margin-bottom:16px;}
+  .greet-text p{margin-bottom:14px;color:var(--brown-light);}
+  .greet-text strong{color:var(--brown);}
+  .signature{
+    margin-top:22px;padding-top:18px;border-top:2px dashed var(--petal);
+    text-align:right;
+  }
+  .signature span{display:block;font-size:.85rem;color:var(--brown-light);margin-bottom:4px;}
+  .signature strong{font-family:'Jua';font-size:1.15rem;letter-spacing:.03em;color:var(--brown);}
+
+  /* ---------- 사진 업로드 슬롯 ---------- */
+  .photo-slot{
+    position:relative;width:100%;aspect-ratio:4/3;
+    border-radius:var(--radius);overflow:hidden;cursor:pointer;
+    background:linear-gradient(135deg,var(--sky-soft),var(--petal-soft));
+    border:3px dashed rgba(126,200,227,.6);
+    display:flex;align-items:center;justify-content:center;
+    transition:.2s;
+  }
+  .photo-slot:hover{transform:scale(1.015);border-color:var(--sky);}
+  .photo-slot.filled{border:none;}
+  .photo-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+  .photo-slot .placeholder{
+    text-align:center;color:var(--brown-light);padding:16px;font-size:.95rem;pointer-events:none;
+  }
+  .photo-slot .placeholder .ico{font-size:2.2rem;display:block;margin-bottom:6px;}
+  .photo-slot .remove-btn{
+    position:absolute;top:10px;right:10px;z-index:3;
+    width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;
+    background:rgba(255,255,255,.9);color:var(--peach);font-size:1rem;line-height:1;
+    display:none;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.15);
+  }
+  .photo-slot.filled:hover .remove-btn{display:flex;}
+  .photo-slot .edit-hint{
+    position:absolute;left:0;right:0;bottom:0;z-index:2;
+    background:linear-gradient(transparent,rgba(0,0,0,.45));
+    color:#fff;font-size:.8rem;text-align:center;padding:20px 8px 8px;
+    opacity:0;transition:.2s;pointer-events:none;
+  }
+  .photo-slot.filled:hover .edit-hint{opacity:1;}
+  .upload-tip{
+    text-align:center;margin-top:18px;font-size:.88rem;color:var(--brown-light);
+    background:var(--petal-soft);display:table;margin-left:auto;margin-right:auto;
+    padding:8px 20px;border-radius:999px;
+  }
+
+  /* ---------- 특색 프로그램 ---------- */
+  .programs{background:var(--sky-soft);}
+  .prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .prog-card{
+    background:var(--cloud);border-radius:var(--radius);padding:34px 26px;
+    text-align:center;box-shadow:0 6px 18px rgba(94,74,61,.07);
+    transition:.2s;position:relative;
+  }
+  .prog-card:hover{transform:translateY(-6px);}
+  .prog-card .badge{
+    width:76px;height:76px;border-radius:50%;margin:0 auto 18px;
+    display:flex;align-items:center;justify-content:center;font-size:2.1rem;
+  }
+  .prog-card h3{font-size:1.25rem;margin-bottom:10px;}
+  .prog-card p{color:var(--brown-light);font-size:.95rem;}
+  .prog-card.p1 .badge{background:var(--sky-soft);}
+  .prog-card.p2 .badge{background:var(--petal-soft);}
+  .prog-card.p3 .badge{background:var(--sprout-soft);}
+
+  .chips{margin-top:16px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;}
+  .chips span{
+    font-size:.78rem;padding:4px 12px;border-radius:999px;
+    background:var(--cream);color:var(--brown-light);border:1.5px dashed rgba(138,119,106,.35);
+  }
+
+  /* ---------- 하루 일과 ---------- */
+  .schedule{background:var(--cloud);}
+  .timeline{max-width:640px;margin:0 auto;position:relative;padding-left:8px;}
+  .timeline::before{
+    content:'';position:absolute;left:29px;top:10px;bottom:10px;
+    width:4px;border-radius:4px;
+    background:repeating-linear-gradient(var(--petal) 0 14px, transparent 14px 24px);
+  }
+  .t-item{
+    position:relative;padding:0 0 26px 74px;
+  }
+  .t-item:last-child{padding-bottom:0;}
+  .t-item .dot{
+    position:absolute;left:10px;top:0;
+    width:42px;height:42px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:1.15rem;
+    background:var(--petal-soft);box-shadow:0 0 0 4px var(--cloud);
+  }
+  .t-item:nth-child(4n+2) .dot{background:var(--sky-soft);}
+  .t-item:nth-child(4n+3) .dot{background:var(--sprout-soft);}
+  .t-item:nth-child(4n+4) .dot{background:#FDE4DE;}
+  .t-item .time{
+    font-family:'Jua';font-size:.92rem;color:var(--peach);letter-spacing:.02em;
+  }
+  .t-item h3{font-size:1.08rem;margin:2px 0 4px;}
+  .t-item p{font-size:.92rem;color:var(--brown-light);}
+  .schedule-note{
+    max-width:640px;margin:30px auto 0;text-align:center;font-size:.86rem;
+    color:var(--brown-light);background:var(--sky-soft);
+    padding:12px 20px;border-radius:18px;
+  }
+
+  /* ---------- 우리 반 ---------- */
+  .class-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .class-card{
+    border-radius:var(--radius);overflow:hidden;background:var(--cloud);
+    box-shadow:0 6px 18px rgba(94,74,61,.08);display:flex;flex-direction:column;
+    transition:.2s;
+  }
+  .class-card:hover{transform:translateY(-6px);}
+  .class-card .ribbon{height:10px;}
+  .class-card .photo-slot{border-radius:0;aspect-ratio:1/1;border-width:0 0 3px 0;border-style:dashed;}
+  .class-card .body{padding:20px 18px 24px;text-align:center;}
+  .class-card .age{
+    display:inline-block;font-size:.78rem;padding:3px 12px;border-radius:999px;margin-bottom:8px;
+  }
+  .class-card h3{font-size:1.2rem;margin-bottom:6px;}
+  .class-card p{font-size:.88rem;color:var(--brown-light);}
+  .c-yellow .ribbon{background:var(--petal);} .c-yellow .age{background:var(--petal-soft);color:#A87B1B;}
+  .c-blue .ribbon{background:var(--sky);}     .c-blue .age{background:var(--sky-soft);color:#2C7A9B;}
+  .c-green .ribbon{background:var(--sprout);} .c-green .age{background:var(--sprout-soft);color:#4E8B5C;}
+  .c-white .ribbon{background:linear-gradient(90deg,#E8ECF0,#F7F9FB);} .c-white .age{background:var(--cloud-soft);color:#7B8794;}
+
+  /* ---------- 갤러리 ---------- */
+  .gallery{background:var(--sprout-soft);}
+  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+
+  /* ---------- 오시는 길 ---------- */
+  .visit-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;}
+  .map-card{
+    background:var(--cloud);border-radius:var(--radius);padding:24px;
+    box-shadow:0 6px 18px rgba(94,74,61,.08);
+  }
+  .map-card svg{width:100%;height:auto;display:block;}
+  .visit-info h2{font-size:1.6rem;margin-bottom:18px;}
+  .info-row{
+    display:flex;gap:14px;align-items:flex-start;margin-bottom:18px;
+    background:var(--cloud);padding:16px 18px;border-radius:18px;
+    box-shadow:0 4px 12px rgba(94,74,61,.06);
+  }
+  .info-row .ic{
+    flex:none;width:44px;height:44px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  }
+  .info-row.addr .ic{background:var(--petal-soft);}
+  .info-row.tel .ic{background:var(--sky-soft);}
+  .info-row.time .ic{background:var(--sprout-soft);}
+  .info-row b{display:block;font-size:.85rem;color:var(--brown-light);margin-bottom:2px;}
+  .info-row a{color:var(--brown);text-decoration:none;font-size:1.05rem;}
+  .info-row a:hover{color:var(--peach);}
+
+  /* ---------- 푸터 ---------- */
+  footer{
+    background:var(--brown);color:#EFE6DC;text-align:center;
+    padding:44px 20px 36px;margin-top:0;
+  }
+  footer .f-logo{font-family:'Jua';font-size:1.2rem;margin-bottom:8px;color:#fff;}
+  footer p{font-size:.9rem;opacity:.85;}
+  footer .heart{color:var(--peach);}
+
+  /* ---------- 반응형 ---------- */
+  @media (max-width:900px){
+    .class-grid{grid-template-columns:repeat(2,1fr);}
+    .prog-grid{grid-template-columns:1fr;}
+    .greet-card,.visit-grid{grid-template-columns:1fr;}
+    .gal-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .class-grid{grid-template-columns:1fr;}
+    .gal-grid{grid-template-columns:1fr;}
+    nav{display:none;}
+    .btn.ghost{margin-left:0;margin-top:10px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- 숨겨진 파일 입력 (사진 업로드용) -->
+<input type="file" id="fileInput" accept="image/*" style="display:none">
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="12" fill="#FFD166"/>
+        <g stroke="#FFD166" stroke-width="3" stroke-linecap="round">
+          <line x1="20" y1="2" x2="20" y2="7"/><line x1="20" y1="33" x2="20" y2="38"/>
+          <line x1="2" y1="20" x2="7" y2="20"/><line x1="33" y1="20" x2="38" y2="20"/>
+          <line x1="7" y1="7" x2="10.5" y2="10.5"/><line x1="29.5" y1="29.5" x2="33" y2="33"/>
+          <line x1="33" y1="7" x2="29.5" y2="10.5"/><line x1="10.5" y1="29.5" x2="7" y2="33"/>
+        </g>
+        <circle cx="16" cy="18" r="1.6" fill="#5C4A3D"/><circle cx="24" cy="18" r="1.6" fill="#5C4A3D"/>
+        <path d="M15 23 Q20 27 25 23" stroke="#5C4A3D" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+      힐스테이트만촌역어린이집
+    </a>
+    <nav aria-label="주요 메뉴">
+      <a href="#greet">인사말</a>
+      <a href="#programs">특색프로그램</a>
+      <a href="#schedule">하루 일과</a>
+      <a href="#classes">우리 반</a>
+      <a href="#gallery">앨범</a>
+      <a href="#visit">오시는 길</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== 히어로 ===== -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="eyebrow">🌱 국공립 힐스테이트 만촌역 어린이집</span>
+    <h1>따뜻한 품에서 자라나는<br><span class="hl">우리 아이의 첫 세상</span></h1>
+    <p>국공립힐스테이트만촌역어린이집은 0세부터 만 2세까지,
+    가장 소중한 시기의 아이들을 사랑과 정성으로 보듬는 영아 전문 어린이집입니다.</p>
+    <a class="btn" href="tel:0532417100">📞 입소 상담 053-241-7100</a>
+    <a class="btn ghost" href="#visit">🗺️ 오시는 길</a>
+  </div>
+
+  <div class="hero-scene" aria-hidden="true">
+    <svg viewBox="0 0 1100 340" xmlns="http://www.w3.org/2000/svg">
+      <!-- 해 -->
+      <g class="float d1">
+        <circle cx="120" cy="80" r="36" fill="#FFD166"/>
+        <g stroke="#FFD166" stroke-width="5" stroke-linecap="round">
+          <line x1="120" y1="24" x2="120" y2="36"/><line x1="120" y1="124" x2="120" y2="136"/>
+          <line x1="64" y1="80" x2="76" y2="80"/><line x1="164" y1="80" x2="176" y2="80"/>
+        </g>
+      </g>
+      <!-- 구름들 -->
+      <g class="float" fill="#FFFFFF" stroke="#E3F3FA" stroke-width="3">
+        <ellipse cx="330" cy="60" rx="52" ry="24"/><ellipse cx="372" cy="52" rx="36" ry="20"/>
+      </g>
+      <g class="float d2" fill="#FFFFFF" stroke="#E3F3FA" stroke-width="3">
+        <ellipse cx="900" cy="70" rx="58" ry="26"/><ellipse cx="948" cy="60" rx="38" ry="20"/>
+      </g>
+      <!-- 언덕 (새싹초록) -->
+      <path d="M0 260 Q275 180 550 250 T1100 240 L1100 340 L0 340 Z" fill="#8FCB9B"/>
+      <path d="M0 300 Q300 240 600 290 T1100 280 L1100 340 L0 340 Z" fill="#7BBB88"/>
+      <!-- 어린이집 건물 -->
+      <g>
+        <rect x="470" y="150" width="160" height="100" rx="10" fill="#FFF6E5" stroke="#E8D9BF" stroke-width="3"/>
+        <path d="M455 155 L550 95 L645 155 Z" fill="#F4907C" stroke="#E07B67" stroke-width="3" stroke-linejoin="round"/>
+        <rect x="535" y="195" width="32" height="55" rx="6" fill="#7EC8E3"/>
+        <circle cx="560" cy="223" r="3" fill="#FFF6E5"/>
+        <rect x="488" y="180" width="30" height="26" rx="6" fill="#FFD166"/>
+        <rect x="584" y="180" width="30" height="26" rx="6" fill="#FFD166"/>
+        <circle cx="550" cy="128" r="10" fill="#FFD166" stroke="#E8B84B" stroke-width="2"/>
+      </g>
+      <!-- 나무 -->
+      <g>
+        <rect x="720" y="215" width="12" height="38" rx="5" fill="#A9836A"/>
+        <circle cx="726" cy="195" r="30" fill="#9FD8AB"/>
+        <circle cx="705" cy="210" r="20" fill="#8FCB9B"/>
+        <circle cx="748" cy="210" r="20" fill="#8FCB9B"/>
+      </g>
+      <!-- 꽃 (노란꽃잎) -->
+      <g>
+        <g transform="translate(380,270)"><circle r="6" fill="#FFD166"/><circle cx="0" cy="-10" r="5" fill="#FFE49E"/><circle cx="9" cy="-4" r="5" fill="#FFE49E"/><circle cx="6" cy="8" r="5" fill="#FFE49E"/><circle cx="-6" cy="8" r="5" fill="#FFE49E"/><circle cx="-9" cy="-4" r="5" fill="#FFE49E"/></g>
+        <g transform="translate(820,285)"><circle r="6" fill="#F4907C"/><circle cx="0" cy="-10" r="5" fill="#FBC4B8"/><circle cx="9" cy="-4" r="5" fill="#FBC4B8"/><circle cx="6" cy="8" r="5" fill="#FBC4B8"/><circle cx="-6" cy="8" r="5" fill="#FBC4B8"/><circle cx="-9" cy="-4" r="5" fill="#FBC4B8"/></g>
+        <g transform="translate(250,295)"><circle r="5" fill="#7EC8E3"/><circle cx="0" cy="-9" r="4.5" fill="#BDE4F2"/><circle cx="8" cy="-3" r="4.5" fill="#BDE4F2"/><circle cx="5" cy="7" r="4.5" fill="#BDE4F2"/><circle cx="-5" cy="7" r="4.5" fill="#BDE4F2"/><circle cx="-8" cy="-3" r="4.5" fill="#BDE4F2"/></g>
+      </g>
+      <!-- 새싹 -->
+      <g stroke="#4E8B5C" stroke-width="4" fill="none" stroke-linecap="round">
+        <path d="M950 300 Q950 280 962 272"/><path d="M950 300 Q950 285 938 278"/>
+        <path d="M170 315 Q170 298 182 290"/><path d="M170 315 Q170 302 158 295"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== 인사말 ===== -->
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 Q120 0 240 30 T480 30 T720 30 T960 30 T1200 30 T1440 30 L1440 60 L0 60 Z" fill="#FFFFFF"/></svg>
+<section class="greet" id="greet">
+  <div class="container">
+    <div class="greet-card">
+      <div class="greet-photo-wrap">
+        <div class="photo-slot" data-key="hero" role="button" tabindex="0" aria-label="원 대표 사진 업로드">
+          <div class="placeholder"><span class="ico">🏡</span>여기를 눌러<br>우리 어린이집 사진을 올려주세요</div>
+          <button class="remove-btn" title="사진 삭제" aria-label="사진 삭제">✕</button>
+          <div class="edit-hint">눌러서 사진 바꾸기</div>
+        </div>
+      </div>
+      <div class="greet-text">
+        <h2>안녕하세요, <br>힐스테이트만촌역어린이집입니다 🌷</h2>
+        <p>저희 어린이집은 <strong>0세부터 만 2세까지의 영아</strong>만을 위한 국공립 어린이집으로,
+        아이 한 명 한 명의 걸음에 맞춘 세심한 보육을 약속드립니다.</p>
+        <p>포근한 가정과 같은 환경 속에서 아이들이 <strong>AI 선진 프로그램</strong>으로 미래를 만나고,
+        <strong>그림책</strong>으로 마음을 키우며, <strong>생태 활동</strong>으로 자연을 배웁니다.</p>
+        <p>부모님의 소중한 아이가 오늘도 웃으며 자랄 수 있도록, 온 마음을 다해 함께하겠습니다.</p>
+        <div class="signature">
+          <span>국공립힐스테이트만촌역어린이집</span>
+          <strong>원장 류 은 주</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 특색 프로그램 ===== -->
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 Q120 0 240 30 T480 30 T720 30 T960 30 T1200 30 T1440 30 L1440 60 L0 60 Z" fill="#E3F3FA"/></svg>
+<section class="programs" id="programs">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag" style="background:var(--cloud);color:#2C7A9B;">✨ 특색 프로그램</span>
+      <h2>우리 어린이집만의 세 가지 자랑</h2>
+      <p>영아기의 배움은 놀이 속에서 자랍니다</p>
+    </div>
+    <div class="prog-grid">
+      <div class="prog-card p1">
+        <div class="badge">🤖</div>
+        <h3>AI 선진 프로그램</h3>
+        <p>AI 로봇 친구 <strong>리쿠(LIKU)</strong>와 <strong>알파미니</strong>가 아이들의 눈높이에서
+        손 씻기, 인사하기, 정리정돈 같은 <strong>기본생활습관</strong>을 재미있게 알려줘요.
+        로봇 친구와 놀며 좋은 습관이 자연스럽게 몸에 배어요.</p>
+        <div class="chips"><span>리쿠</span><span>알파미니</span><span>기본생활습관</span></div>
+      </div>
+      <div class="prog-card p2">
+        <div class="badge">📚</div>
+        <h3>ESD 그림책</h3>
+        <p><strong>ESD(지속가능발전교육) 그림책</strong>을 활용한 동화 활동으로
+        배려·나눔·존중 같은 <strong>인성의 씨앗</strong>을 심어요.
+        따뜻한 이야기 속에서 마음이 자라고, 나와 친구, 지구를 사랑하는 아이로 커요.</p>
+        <div class="chips"><span>ESD 동화</span><span>인성교육</span><span>배려와 나눔</span></div>
+      </div>
+      <div class="prog-card p3">
+        <div class="badge">🌱</div>
+        <h3>생태</h3>
+        <p>한 달에 한 번 <strong>동물 친구들(쥬쥬)</strong>이 어린이집으로 찾아오고,
+        직접 가꾸는 <strong>텃밭</strong>에서 채소가 자라는 걸 지켜봐요.
+        <strong>숲체험</strong>으로 흙을 밟고 자연을 온몸으로 느끼며 건강하게 자라요.</p>
+        <div class="chips"><span>쥬쥬 동물체험</span><span>텃밭 가꾸기</span><span>숲체험</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 하루 일과 ===== -->
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 Q120 0 240 30 T480 30 T720 30 T960 30 T1200 30 T1440 30 L1440 60 L0 60 Z" fill="#FFFFFF"/></svg>
+<section class="schedule" id="schedule">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag" style="background:var(--sprout-soft);color:#4E8B5C;">🕐 하루 일과</span>
+      <h2>우리 아이들의 하루</h2>
+      <p>놀이 중심의 표준보육과정에 따라 편안하고 규칙적인 하루를 보내요</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="dot">🌞</div>
+        <span class="time">07:30 ~ 09:30</span>
+        <h3>등원 및 맞이하기</h3>
+        <p>선생님 품에 안겨 반갑게 인사하고, 건강 상태를 살펴요. 자유롭게 놀이하며 하루를 열어요.</p>
+      </div>
+      <div class="t-item">
+        <div class="dot">🍪</div>
+        <span class="time">09:30 ~ 10:00</span>
+        <h3>오전 간식</h3>
+        <p>손을 깨끗이 씻고 맛있는 오전 간식을 먹어요.</p>
+      </div>
+      <div class="t-item">
+        <div class="dot">🧸</div>
+        <span class="time">10:00 ~ 11:00</span>
+        <h3>오전 실내 자유놀이</h3>
+        <p>흥미 영역에서 자유롭게 놀이해요. 리쿠·알파미니와 놀이하거나 ESD 그림책을 읽는 시간이에요.</p>
+      </div>
+      <div class="t-item">
+        <div class="dot">🌳</div>
+        <span class="time">11:00 ~ 11:40</span>
+        <h3>바깥놀이 · 산책</h3>
+        <p>텃밭을 돌보고 자연을 관찰하며 매일 바깥 공기를 마셔요. 숲체험을 다녀오는 날도 있어요.</p>
+      </div>
+      <div class="t-item">
+        <div class="dot">🍚</div>
+        <span class="time">11:40 ~ 12:40</span>
+        <h3>점심 식사 및 이닦기</h3>
+        <p>영양 가득한 점심을 먹고, 스스로 이를 닦는 연습을 해요.</p>
+      </div>
+      <div class="t-item">
+        <div class="dot">😴</div>
+        <span class="time">12:40 ~ 15:00</span>
+        <h3>낮잠 및 휴식</h3>
+        <p>포근한 이불 속에서 편안하게 낮잠을 자며 몸과 마음을 쉬어요.</p>
+      </div>
+      <div class="t-item">
+        <div class="dot">🍎</div>
+        <span class="time">15:00 ~ 15:30</span>
+        <h3>오후 간식</h3>
+        <p>낮잠에서 일어나 기저귀·화장실을 다녀오고 오후 간식을 먹어요.</p>
+      </div>
+      <div class="t-item">
+        <div class="dot">🎨</div>
+        <span class="time">15:30 ~ 16:00</span>
+        <h3>오후 자유놀이</h3>
+        <p>노래하고, 그리고, 몸을 움직이며 오후의 놀이를 즐겨요.</p>
+      </div>
+      <div class="t-item">
+        <div class="dot">👋</div>
+        <span class="time">16:00</span>
+        <h3>하원</h3>
+        <p>오늘 하루도 씩씩하게 보낸 우리 아이들, 한 명 한 명 따뜻하게 안아주며 배웅해요.</p>
+      </div>
+      <div class="t-item">
+        <div class="dot">🌙</div>
+        <span class="time">16:00 ~ 19:30</span>
+        <h3>연장반 운영</h3>
+        <p>귀가가 늦는 친구들은 연장반 선생님과 편안하게 놀이하며 부모님을 기다려요.</p>
+      </div>
+    </div>
+    <div class="schedule-note">💙 하루 일과는 반별 연령과 아이들의 컨디션, 계절에 따라 유연하게 운영됩니다.</div>
+  </div>
+</section>
+
+<!-- ===== 우리 반 소개 ===== -->
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 Q120 0 240 30 T480 30 T720 30 T960 30 T1200 30 T1440 30 L1440 60 L0 60 Z" fill="#FFF9F0"/></svg>
+<section id="classes" style="background:var(--cream);">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag" style="background:var(--petal-soft);color:#A87B1B;">🎈 우리 반</span>
+      <h2>네 개의 반, 네 가지 빛깔</h2>
+      <p>반 사진을 눌러 우리 반 아이들의 모습을 올려보세요</p>
+    </div>
+    <div class="class-grid">
+      <div class="class-card c-yellow">
+        <div class="ribbon"></div>
+        <div class="photo-slot" data-key="class_yellow" role="button" tabindex="0" aria-label="노란꽃잎반 사진 업로드">
+          <div class="placeholder"><span class="ico">🌼</span>사진 올리기</div>
+          <button class="remove-btn" title="사진 삭제" aria-label="사진 삭제">✕</button>
+          <div class="edit-hint">눌러서 사진 바꾸기</div>
+        </div>
+        <div class="body">
+          <span class="age">0세</span>
+          <h3>노란꽃잎반</h3>
+          <p>세상에 갓 피어난<br>가장 여리고 소중한 꽃잎들</p>
+        </div>
+      </div>
+      <div class="class-card c-blue">
+        <div class="ribbon"></div>
+        <div class="photo-slot" data-key="class_blue" role="button" tabindex="0" aria-label="파란하늘반 사진 업로드">
+          <div class="placeholder"><span class="ico">☁️</span>사진 올리기</div>
+          <button class="remove-btn" title="사진 삭제" aria-label="사진 삭제">✕</button>
+          <div class="edit-hint">눌러서 사진 바꾸기</div>
+        </div>
+        <div class="body">
+          <span class="age">만 1세</span>
+          <h3>파란하늘반</h3>
+          <p>넓은 하늘처럼<br>꿈이 자라나는 아이들</p>
+        </div>
+      </div>
+      <div class="class-card c-green">
+        <div class="ribbon"></div>
+        <div class="photo-slot" data-key="class_green" role="button" tabindex="0" aria-label="초록새싹반 사진 업로드">
+          <div class="placeholder"><span class="ico">🌱</span>사진 올리기</div>
+          <button class="remove-btn" title="사진 삭제" aria-label="사진 삭제">✕</button>
+          <div class="edit-hint">눌러서 사진 바꾸기</div>
+        </div>
+        <div class="body">
+          <span class="age">만 1세</span>
+          <h3>초록새싹반</h3>
+          <p>하루하루 쑥쑥<br>씩씩하게 자라는 새싹들</p>
+        </div>
+      </div>
+      <div class="class-card c-white">
+        <div class="ribbon"></div>
+        <div class="photo-slot" data-key="class_white" role="button" tabindex="0" aria-label="하얀구름반 사진 업로드">
+          <div class="placeholder"><span class="ico">🤍</span>사진 올리기</div>
+          <button class="remove-btn" title="사진 삭제" aria-label="사진 삭제">✕</button>
+          <div class="edit-hint">눌러서 사진 바꾸기</div>
+        </div>
+        <div class="body">
+          <span class="age">만 2세</span>
+          <h3>하얀구름반</h3>
+          <p>몽글몽글 상상력이<br>피어나는 형님반</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 갤러리 ===== -->
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 Q120 0 240 30 T480 30 T720 30 T960 30 T1200 30 T1440 30 L1440 60 L0 60 Z" fill="#E7F5EA"/></svg>
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag" style="background:var(--cloud);color:#4E8B5C;">📷 앨범</span>
+      <h2>반짝반짝 우리들의 하루</h2>
+      <p>사진 칸을 누르면 원하는 사진으로 채울 수 있어요</p>
+    </div>
+    <div class="gal-grid">
+      <div class="photo-slot" data-key="gal_1" role="button" tabindex="0" aria-label="앨범 사진 1 업로드"><div class="placeholder"><span class="ico">📸</span>사진 올리기</div><button class="remove-btn" title="사진 삭제" aria-label="사진 삭제">✕</button><div class="edit-hint">눌러서 사진 바꾸기</div></div>
+      <div class="photo-slot" data-key="gal_2" role="button" tabindex="0" aria-label="앨범 사진 2 업로드"><div class="placeholder"><span class="ico">🎨</span>사진 올리기</div><button class="remove-btn" title="사진 삭제" aria-label="사진 삭제">✕</button><div class="edit-hint">눌러서 사진 바꾸기</div></div>
+      <div class="photo-slot" data-key="gal_3" role="button" tabindex="0" aria-label="앨범 사진 3 업로드"><div class="placeholder"><span class="ico">🧸</span>사진 올리기</div><button class="remove-btn" title="사진 삭제" aria-label="사진 삭제">✕</button><div class="edit-hint">눌러서 사진 바꾸기</div></div>
+      <div class="photo-slot" data-key="gal_4" role="button" tabindex="0" aria-label="앨범 사진 4 업로드"><div class="placeholder"><span class="ico">🌻</span>사진 올리기</div><button class="remove-btn" title="사진 삭제" aria-label="사진 삭제">✕</button><div class="edit-hint">눌러서 사진 바꾸기</div></div>
+      <div class="photo-slot" data-key="gal_5" role="button" tabindex="0" aria-label="앨범 사진 5 업로드"><div class="placeholder"><span class="ico">🍀</span>사진 올리기</div><button class="remove-btn" title="사진 삭제" aria-label="사진 삭제">✕</button><div class="edit-hint">눌러서 사진 바꾸기</div></div>
+      <div class="photo-slot" data-key="gal_6" role="button" tabindex="0" aria-label="앨범 사진 6 업로드"><div class="placeholder"><span class="ico">🎵</span>사진 올리기</div><button class="remove-btn" title="사진 삭제" aria-label="사진 삭제">✕</button><div class="edit-hint">눌러서 사진 바꾸기</div></div>
+    </div>
+    <div class="upload-tip">💡 사진 칸을 클릭하면 컴퓨터/휴대폰에서 사진을 골라 올릴 수 있고, 다시 누르면 바꿀 수 있어요.</div>
+  </div>
+</section>
+
+<!-- ===== 오시는 길 ===== -->
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 Q120 0 240 30 T480 30 T720 30 T960 30 T1200 30 T1440 30 L1440 60 L0 60 Z" fill="#FFF9F0"/></svg>
+<section id="visit" style="background:var(--cream);">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag" style="background:var(--sky-soft);color:#2C7A9B;">🚏 오시는 길</span>
+      <h2>만촌역에서 만나요</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="map-card">
+        <!-- 손그림 약도 -->
+        <svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="약도: 수성구대로 위 만촌역 인근에 어린이집이 있습니다">
+          <rect x="0" y="0" width="520" height="340" rx="18" fill="#F6FBF7"/>
+          <!-- 수성구대로 (큰길, 가로) -->
+          <rect x="0" y="150" width="520" height="56" fill="#E8E4DC"/>
+          <line x1="0" y1="178" x2="520" y2="178" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="22 16"/>
+          <text x="18" y="143" font-family="Jua" font-size="17" fill="#8A776A">수성구대로</text>
+          <!-- 교차로 세로길 -->
+          <rect x="330" y="0" width="44" height="340" fill="#EFEBE3"/>
+          <line x1="352" y1="0" x2="352" y2="340" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="16 14"/>
+          <!-- 만촌역 (지하철 2호선) -->
+          <g>
+            <circle cx="255" cy="178" r="26" fill="#2FA84F"/>
+            <circle cx="255" cy="178" r="26" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+            <text x="255" y="186" text-anchor="middle" font-family="Jua" font-size="20" fill="#FFFFFF">2</text>
+            <rect x="200" y="216" width="110" height="30" rx="15" fill="#FFFFFF" stroke="#2FA84F" stroke-width="2.5"/>
+            <text x="255" y="237" text-anchor="middle" font-family="Jua" font-size="16" fill="#2FA84F">만촌역</text>
+          </g>
+          <!-- 힐스테이트 아파트 단지 -->
+          <g>
+            <rect x="60" y="52" width="46" height="72" rx="6" fill="#C9D8E8" stroke="#A9BDD3" stroke-width="2"/>
+            <rect x="116" y="36" width="46" height="88" rx="6" fill="#D7E3EF" stroke="#A9BDD3" stroke-width="2"/>
+            <g fill="#FFF6C9">
+              <rect x="70" y="62" width="10" height="10" rx="2"/><rect x="86" y="62" width="10" height="10" rx="2"/>
+              <rect x="70" y="82" width="10" height="10" rx="2"/><rect x="86" y="82" width="10" height="10" rx="2"/>
+              <rect x="126" y="48" width="10" height="10" rx="2"/><rect x="142" y="48" width="10" height="10" rx="2"/>
+              <rect x="126" y="68" width="10" height="10" rx="2"/><rect x="142" y="68" width="10" height="10" rx="2"/>
+            </g>
+            <text x="111" y="20" text-anchor="middle" font-family="Jua" font-size="14" fill="#8A776A">힐스테이트 단지</text>
+          </g>
+          <!-- 어린이집 위치 -->
+          <g>
+            <path d="M210 70 L245 45 L280 70 Z" fill="#F4907C" stroke="#E07B67" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="216" y="70" width="58" height="42" rx="6" fill="#FFF6E5" stroke="#E8D9BF" stroke-width="2.5"/>
+            <rect x="236" y="88" width="16" height="24" rx="4" fill="#7EC8E3"/>
+            <circle cx="245" cy="58" r="5" fill="#FFD166"/>
+            <!-- 핀 -->
+            <g>
+              <path d="M245 148 C232 130 224 122 224 110 a21 21 0 1 1 42 0 c0 12-8 20-21 38 Z" fill="#F4907C" stroke="#E07B67" stroke-width="2"/>
+              <circle cx="245" cy="110" r="8" fill="#FFFFFF"/>
+            </g>
+            <rect x="150" y="112" width="66" height="0" fill="none"/>
+            <rect x="288" y="62" width="150" height="34" rx="17" fill="#FFD166"/>
+            <text x="363" y="85" text-anchor="middle" font-family="Jua" font-size="15" fill="#5C4A3D">우리 어린이집 🏡</text>
+          </g>
+          <!-- 도보 표시 -->
+          <g stroke="#F4907C" stroke-width="3" fill="none" stroke-dasharray="2 8" stroke-linecap="round">
+            <path d="M255 150 L245 150"/>
+          </g>
+          <text x="150" y="290" font-family="Gowun Dodum" font-size="14" fill="#8A776A">🚶 만촌역에서 도보로 금방이에요!</text>
+          <!-- 방위 -->
+          <g transform="translate(468,44)">
+            <circle r="20" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="2"/>
+            <path d="M0 -12 L5 4 L0 0 L-5 4 Z" fill="#F4907C"/>
+            <text y="16" text-anchor="middle" font-family="Jua" font-size="10" fill="#8A776A">N</text>
+          </g>
+        </svg>
+      </div>
+      <div class="visit-info">
+        <h2>언제든 편하게<br>문의해 주세요 💛</h2>
+        <div class="info-row addr">
+          <div class="ic">📍</div>
+          <div><b>주소</b><a href="https://map.kakao.com/?q=대구광역시 수성구 수성구대로 2567" target="_blank" rel="noopener">대구광역시 수성구 수성구대로 2567</a></div>
+        </div>
+        <div class="info-row tel">
+          <div class="ic">📞</div>
+          <div><b>전화 문의</b><a href="tel:0532417100">053-241-7100</a></div>
+        </div>
+        <div class="info-row time">
+          <div class="ic">🚇</div>
+          <div><b>대중교통</b><span>대구 지하철 2호선 만촌역 하차, 도보 이용</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">국공립힐스테이트만촌역어린이집</div>
+  <p>대구광역시 수성구 수성구대로 2567 · ☎ 053-241-7100</p>
+  <p style="margin-top:10px;">아이들의 웃음이 자라는 곳 <span class="heart">♥</span></p>
+</footer>
+
+<script>
+(function(){
+  const KEYS = ['hero','class_yellow','class_blue','class_green','class_white','gal_1','gal_2','gal_3','gal_4','gal_5','gal_6'];
+  const fileInput = document.getElementById('fileInput');
+  let currentSlot = null;
+
+  // 저장소: 아티팩트 환경(window.storage) 우선, 없으면 페이지 내 메모리
+  const memory = {};
+  const store = {
+    async get(k){
+      if (window.storage) {
+        try { const r = await window.storage.get('photo:'+k); return r ? r.value : null; }
+        catch(e){ return null; }
+      }
+      return memory[k] || null;
+    },
+    async set(k,v){
+      if (window.storage) {
+        try { await window.storage.set('photo:'+k, v); return true; }
+        catch(e){ console.error('저장 실패', e); return false; }
+      }
+      memory[k]=v; return true;
+    },
+    async del(k){
+      if (window.storage) {
+        try { await window.storage.delete('photo:'+k); } catch(e){}
+      }
+      delete memory[k];
+    }
+  };
+
+  function slotEl(key){ return document.querySelector('.photo-slot[data-key="'+key+'"]'); }
+
+  function render(slot, dataUrl){
+    let img = slot.querySelector('img');
+    if (dataUrl){
+      if (!img){ img = document.createElement('img'); img.alt = '업로드한 사진'; slot.insertBefore(img, slot.firstChild); }
+      img.src = dataUrl;
+      slot.classList.add('filled');
+    } else {
+      if (img) img.remove();
+      slot.classList.remove('filled');
+    }
+  }
+
+  // 이미지 리사이즈 + 압축 (저장 용량 관리)
+  function compress(file){
+    return new Promise((resolve, reject)=>{
+      const reader = new FileReader();
+      reader.onload = () => {
+        const img = new Image();
+        img.onload = () => {
+          const MAX = 1200;
+          let w = img.width, h = img.height;
+          if (w > MAX || h > MAX){
+            const r = Math.min(MAX/w, MAX/h);
+            w = Math.round(w*r); h = Math.round(h*r);
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+          resolve(canvas.toDataURL('image/jpeg', 0.82));
+        };
+        img.onerror = () => reject(new Error('이미지를 읽을 수 없어요'));
+        img.src = reader.result;
+      };
+      reader.onerror = () => reject(new Error('파일을 읽을 수 없어요'));
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // 슬롯 클릭 → 파일 선택
+  document.querySelectorAll('.photo-slot').forEach(slot=>{
+    slot.addEventListener('click', (e)=>{
+      if (e.target.closest('.remove-btn')) return;
+      currentSlot = slot;
+      fileInput.value = '';
+      fileInput.click();
+    });
+    slot.addEventListener('keydown', (e)=>{
+      if (e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        currentSlot = slot; fileInput.value=''; fileInput.click();
+      }
+    });
+    const rm = slot.querySelector('.remove-btn');
+    if (rm) rm.addEventListener('click', async (e)=>{
+      e.stopPropagation();
+      const key = slot.dataset.key;
+      await store.del(key);
+      render(slot, null);
+    });
+  });
+
+  fileInput.addEventListener('change', async ()=>{
+    const file = fileInput.files && fileInput.files[0];
+    if (!file || !currentSlot) return;
+    const slot = currentSlot;
+    const ph = slot.querySelector('.placeholder');
+    const origText = ph ? ph.innerHTML : '';
+    if (ph) ph.innerHTML = '<span class="ico">⏳</span>올리는 중...';
+    try {
+      const dataUrl = await compress(file);
+      render(slot, dataUrl);
+      const ok = await store.set(slot.dataset.key, dataUrl);
+      if (!ok) alert('사진 저장에 실패했어요. 사진 크기를 줄여 다시 시도해 주세요.');
+    } catch(err) {
+      alert('사진을 불러오지 못했어요. 다른 사진으로 시도해 주세요.');
+      console.error(err);
+    } finally {
+      if (ph) ph.innerHTML = origText;
+    }
+  });
+
+  // 저장된 사진 불러오기
+  (async ()=>{
+    for (const key of KEYS){
+      const v = await store.get(key);
+      const slot = slotEl(key);
+      if (v && slot) render(slot, v);
+    }
+  })();
+})();
+</script>
+</body>
+</html>
